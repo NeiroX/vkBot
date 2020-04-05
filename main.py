@@ -80,7 +80,7 @@ def main():
             print('Текст:', event.obj.message['text'])
             valid = validators.url(event.obj.message['text'])
             vk = vk_session.get_api()
-            if valid and 'kpolyakov.spb.ru' in event.obj.message['from_id']:
+            if valid and 'http://kpolyakov.spb.ru/' in event.obj.message['text']:
                 vk.messages.send(user_id=event.obj.message['from_id'],
                                  message=get_answers(event.obj.message['text']),
                                  random_id=random.randint(0, 2 ** 64))
